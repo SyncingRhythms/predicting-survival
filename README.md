@@ -8,6 +8,7 @@ Using Kaggle's Titanic datasets, I attempt to predict survival for each passenge
 
 Prior to each model testing on novel data, I implement:
 - Data Cleaning
+- Text Mining
 - Feature Engineering
 - Feature Selection
 - Visualization
