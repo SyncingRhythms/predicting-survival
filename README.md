@@ -1,6 +1,6 @@
 # Titanic Survival
 
-Using Kaggle's Titanic datasets, I attempt to predict survival for each passenger. Hence, this project offers a classification problem. I offer two model solutions using:
+Using Kaggle's Titanic datasets, I attempt to predict survival for each passenger. Hence, this project offers a classification problem. I offer two model solutions using,
 
 1. Random Forests 
 2. Ensembling with Gradient Boosting and Logistic Regression 
