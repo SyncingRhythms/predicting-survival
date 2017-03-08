@@ -10,7 +10,6 @@ if __name__ == "__main__":
 	#kaggle training set
 	titanic = pd.read_csv("train.csv")
 	print(titanic.head())
-
 	titanic["Age"] = titanic["Age"].fillna(titanic["Age"].median())
 	print(titanic.describe())
 
@@ -35,19 +34,15 @@ if __name__ == "__main__":
 
 	# Verify that we converted everything.
 	print(pd.value_counts(titles))
-
 	# Add in the title column.
 	titanic["Title"] = titles
 
 	# Get the family ids with the apply method
 	family_ids = titanic.apply(annotate.get_family_id, axis=1)
-
 	# There are a lot of family ids, so we'll compress all of the families under 3 members into one code.
 	family_ids[titanic["FamilySize"] < 3] = -1
-
 	# Print the count of each unique id.
 	print(pd.value_counts(family_ids))
-
 	titanic["FamilyId"] = family_ids
 
 	#save cleaned dataset
