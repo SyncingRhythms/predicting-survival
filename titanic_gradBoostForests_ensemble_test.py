@@ -69,8 +69,8 @@ if __name__ == "__main__":
 	    predictions = alg.predict_proba(titanic_test[predictors].astype(float))[:,1]
 	    full_predictions.append(predictions)
 
-	# The gradient boosting classifier generates better predictions, so we weight it higher.
-	predictions = (full_predictions[0] * 3 + full_predictions[1]) / 4
+	# Use simple ensemble average of predictions
+	predictions = (full_predictions[0] + full_predictions[1]) / 2
 	predictions[predictions > .5] = 1
 	predictions[predictions <= .5] = 0
 	predictions = predictions.astype(int)
