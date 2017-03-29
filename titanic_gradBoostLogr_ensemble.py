@@ -9,8 +9,6 @@ from sklearn.ensemble import GradientBoostingClassifier
 if __name__ == "__main__":
 	#kaggle training set
 	titanic = pd.read_csv("train.csv")
-	#kaggle submission testing set
-	titanic_test = pd.read_csv("test.csv")
 	print(titanic.head())
 
 	titanic["Age"] = titanic["Age"].fillna(titanic["Age"].median())
