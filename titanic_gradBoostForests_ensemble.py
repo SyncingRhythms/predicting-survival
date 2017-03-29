@@ -55,9 +55,9 @@ if __name__ == "__main__":
 	titanic.to_csv("titanic_clean.csv")
 
 	###Gradient Boosting###
-	## & Logistic Regression
+	## & Random Forest
 	# The algorithms we want to ensemble.
-	# We're using the more linear predictors for the logistic regression, and everything with the gradient boosting classifier.
+	# Along with the feature predictors
 	algorithms = [
 		[GradientBoostingClassifier(random_state=1, n_estimators=25, max_depth=3), ["Pclass", "Sex", "Age", "Fare", "Embarked", "FamilySize", "Title", "FamilyId"]],
 		[RandomForestClassifier(random_state=1, min_samples_split=8, min_samples_leaf=4, n_estimators=50), ["Pclass", "Sex", "Fare", "FamilySize", "Title", "Age", "Embarked"]]
@@ -79,7 +79,6 @@ if __name__ == "__main__":
 		    test_predictions = alg.predict_proba(titanic[predictors].iloc[test,:].astype(float))[:,1]
 		    full_test_predictions.append(test_predictions)
 		# Use a simple ensembling scheme -- just average the predictions to get the final classification.
-		# the gradient boosting algorithm generates better predictions, so 	we'll weight it higher
 		test_predictions = (full_test_predictions[0] + full_test_predictions[1]) / 2
 		# Any value over .5 is assumed to be a 1 prediction, and below .5 is a 0 prediction.
 		test_predictions[test_predictions <= .5] = 0
