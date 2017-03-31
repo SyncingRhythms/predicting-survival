@@ -64,7 +64,7 @@ if __name__ == "__main__":
 	]
 
 	# Initialize the cross validation folds
-	kf = KFold(n_splits=3, random_state=3)
+	kf = KFold(n_splits=10, random_state=3)
 
 	predictions = []
 	for train, test in kf.split(titanic):
@@ -74,7 +74,7 @@ if __name__ == "__main__":
 		for alg, predictors in algorithms:
 		    # Fit the algorithm on the training data.
 		    alg.fit(titanic[predictors].iloc[train,:], train_target)
-		    # Select and predict on the test fold.  
+		    # Select and predict on the test fold.
 		    # The .astype(float) is necessary to convert the dataframe to all floats and avoid an sklearn error.
 		    test_predictions = alg.predict_proba(titanic[predictors].iloc[test,:].astype(float))[:,1]
 		    full_test_predictions.append(test_predictions)
