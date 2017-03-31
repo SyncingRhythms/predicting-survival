@@ -8,7 +8,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 
 if __name__ == "__main__":
 	#kaggle training set
-	titanic = pd.read_csv("train.csv")
+	titanic = pd.read_csv("data/train.csv")
 	print(titanic.head())
 
 	titanic["Age"] = titanic["Age"].fillna(titanic["Age"].median())
@@ -52,7 +52,7 @@ if __name__ == "__main__":
 	titanic["FamilyId"] = family_ids
 
 	# save cleaned dataset to csv
-	titanic.to_csv("titanic_clean.csv")
+	titanic.to_csv("data/titanic_clean.csv")
 
 	###Gradient Boosting###
 	## & Logistic Regression

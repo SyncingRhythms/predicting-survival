@@ -8,7 +8,7 @@ from sklearn.feature_selection import SelectKBest, f_classif
 
 if __name__ == "__main__":
 	#kaggle training set
-	titanic = pd.read_csv("train.csv")
+	titanic = pd.read_csv("data/train.csv")
 	print(titanic.head())
 	titanic["Age"] = titanic["Age"].fillna(titanic["Age"].median())
 	print(titanic.describe())
@@ -46,7 +46,7 @@ if __name__ == "__main__":
 	titanic["FamilyId"] = family_ids
 
 	#save cleaned dataset
-	titanic.to_csv("titanic_clean.csv")
+	titanic.to_csv("data/titanic_clean.csv")
 
 	##Random Forest###
 	###Feature Selection###

@@ -6,9 +6,9 @@ from sklearn.ensemble import RandomForestClassifier
 
 if __name__ == "__main__":
 	#kaggle training set
-	titanic = pd.read_csv("titanic_clean.csv")
+	titanic = pd.read_csv("data/titanic_clean.csv")
 	#kaggle submission testing set
-	titanic_test = pd.read_csv("test.csv")
+	titanic_test = pd.read_csv("data/test.csv")
 	print(titanic_test.head())
 
 	#must fill test values with the same from the training set, unless there's missing values in the test set that weren't in the training set -- like the fare column in the test set, which we will replace with the titanic_test["Fare"].median() (i.e., from the testing dataset)
@@ -65,5 +65,4 @@ if __name__ == "__main__":
 		"PassengerId": titanic_test.PassengerId,
 		"Survived": predictions
 	})
-	submission.to_csv("titanic_forests_predictions.csv", index=False)
-
+	submission.to_csv("data/titanic_forests_predictions.csv", index=False)
