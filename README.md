@@ -12,7 +12,7 @@ Prior to each model testing on novel data, I implement:
 - Feature Engineering
 - Feature Selection
 - Visualization
-- 3-fold Cross Validation
+- 10-fold Cross Validation
 
 Testing of each model on untrained data is executed in the python files ending in _test.
 
