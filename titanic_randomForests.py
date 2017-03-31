@@ -68,6 +68,6 @@ if __name__ == "__main__":
 	##cross-validation###
 	alg = RandomForestClassifier(random_state=1, n_estimators=50, min_samples_split=8, min_samples_leaf=4)
 
-	kf = KFold(n_splits=3, random_state=1)
+	kf = KFold(n_splits=10, random_state=1)
 	scores = cross_val_score(alg, titanic[predictors], titanic["Survived"], cv=kf)
 	print("{0}% of Predictions Correct".format(round(scores.mean()*100)))
